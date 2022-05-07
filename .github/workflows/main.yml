@@ -15,6 +15,10 @@ jobs:
         with:
           fetch-depth: 0
       - run: npm run test
+      - name: jest test with Coverage
+        continue-on-error: true
+        working-directory: 'src/ProjectWithJestTests' 
+        run: jest --json --outputFile=result.json
       - name: Process jest results with default
         if: always()
         uses: im-open/process-jest-test-results@v2.0.5
