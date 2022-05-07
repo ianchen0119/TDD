@@ -30,7 +30,17 @@ class porterKata implements cashier {
             }
             price += i.price;
         })
-        if (counter > 1) price = price * 0.95;
+
+        switch (counter) {
+            case 2:
+                price = price * 0.95;
+                break;
+            case 3:
+                price = price * 0.9;
+                break;
+            default:
+                price;
+        }
 
         return price;
     }
