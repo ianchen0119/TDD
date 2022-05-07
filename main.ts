@@ -17,10 +17,21 @@ class porterKata implements cashier {
     }
 
     cauculate(): number {
-        let price = 0;
+        let map: Map<string, number> = new Map();
+        let price: number = 0;
+        let counter: number = 0;
         this.shoppingList.map((i) => {
+            if (map.get(i.name)) {
+                let oriValue:any = map.get(i.name);
+                map.set(i.name, oriValue + 1);
+            } else {
+                map.set(i.name, 1);
+                counter++;
+            }
             price += i.price;
         })
+        if (counter > 1) price = price * 0.95;
+
         return price;
     }
 
