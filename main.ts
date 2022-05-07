@@ -38,6 +38,9 @@ class porterKata implements cashier {
             case 3:
                 price = price * 0.9;
                 break;
+            case 4:
+                price = price * 0.8;
+                break;
             default:
                 price;
         }
