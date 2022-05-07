@@ -1,4 +1,4 @@
-interface book {
+export interface book {
     name :string;
     price: number;
 }
@@ -6,7 +6,7 @@ interface book {
 interface cashier {
     shoppingList: book[];
     cauculate(): number;
-    pushItem(): boolean;
+    pushItem(newItem :book): boolean;
 }
 
 class porterKata implements cashier {
@@ -17,10 +17,15 @@ class porterKata implements cashier {
     }
 
     cauculate(): number {
-        return 0;
+        let price = 0;
+        this.shoppingList.map((i) => {
+            price += i.price;
+        })
+        return price;
     }
 
-    pushItem(): boolean {
+    pushItem(newItem: book): boolean {
+        this.shoppingList.push(newItem);
         return true;
     }
 }
